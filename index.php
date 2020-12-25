@@ -44,6 +44,8 @@
 	?>
 
 	今日の運勢は<?php print($result); ?>です
+
+	<input type="button" onclick="location.href='edit.php'" value="戻る">
 </pre>
 </main>
 </body>
