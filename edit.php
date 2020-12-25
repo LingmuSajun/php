@@ -19,6 +19,16 @@
 <h2>今日の運勢</h2>
 <pre>
 	<h6>生年月日</h6>
+	<?php
+		$error = $_GET["error"];
+		if(intval($error) === 1) {
+			print('生年月日を入力してください');
+		} elseif(intval($error) === 2) {
+			print('半角数字のみで入力してください');
+		} elseif(intval($error) === 3) {
+			print('8桁の数字を入力してください');
+		}
+	?>
 	<form action="index.php" method="get">
 		<input type="text" name="comment/"><br/>
 		<input type="submit" value="送信">

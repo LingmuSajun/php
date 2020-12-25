@@ -18,8 +18,20 @@
 <main>
 <h2>今日の運勢</h2>
 <pre>
-	<?php $birthDate = $_GET["comment/"]; ?>
-	<?php $rand = mt_rand(1, 10); ?>
+	<?php
+		$birthDate = $_GET["comment/"];
+		if(empty($birthDate)) {
+			header('Location: edit.php?error=1');
+			exit;
+		} elseif(!is_numeric($birthDate)) {
+			header('Location: edit.php?error=2');
+			exit;
+		} elseif(strlen($birthDate) != 8) {
+			header('Location: edit.php?error=3');
+			exit;
+		}
+		$rand = mt_rand(1, 10);
+	?>
 
 	誕生日は<?php print($birthDate); ?>です<br/>
 	<?php
